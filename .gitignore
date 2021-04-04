@@ -1,0 +1,6 @@
+#ignore all the __pycache__
+__pycache__/
+
+#keep the logs folder in Kafka
+Kafka_stream/logs/*
+!Kafka_stream/logs/.gitkeep
