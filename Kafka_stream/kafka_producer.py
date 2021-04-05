@@ -13,6 +13,8 @@ except Exception as e:
     print(message)
     kafka_utilities.log(message, LOG_SENDER)
     exit(1)
+else:
+    kafka_utilities.log("Succesfully initalized the producer", LOG_SENDER)
 
 #success callback
 def on_message_success(record_metadata):

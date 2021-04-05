@@ -1,5 +1,5 @@
 #Home for root kafka folder
-KAFKA_HOME="/opt/kafka/"
+KAFKA_HOME="/home/miautawn/Programs/Kafka/"
 
 #Should print the kafka messages? 0 - No, 1 - yes
 VERBOSE=0
