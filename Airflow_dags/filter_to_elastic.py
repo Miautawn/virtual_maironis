@@ -1,10 +1,9 @@
 from airflow import DAG
-from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
 import psycopg2 as db
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
+from datetime import datetime, timedelta
 import sys
 import re
 import csv
@@ -54,8 +53,8 @@ def filter_from_sql():
     and store it into a file in ./filtered_data.csv
     '''
 
-    #read 5 poems at the time
-    query = "SELECT * FROM {} LIMIT 5".format(config.SQL_TABLE)
+    #read 10 poems at the time
+    query = "SELECT * FROM {} LIMIT 10".format(config.SQL_TABLE)
     try:
         cursor.execute(query)
     except Exception as e:
@@ -88,7 +87,7 @@ def push_to_elastic():
     elastic_actions = []
     for row in m_reader:
         ID, header, body = row
-        action = {'_index' : 'maironis-poems',
+        action = {'_index' : config.ELASTiC_INDEX,
                   'title' : header,
                   'body' : body
                  }
@@ -121,7 +120,7 @@ def delete_from_sql():
     
 
 #creating our DAG
-with DAG('FILTER_DATA_DAG', schedule_interval=timedelta(minutes=1), 
+with DAG('FILTER_DATA_DAG', schedule_interval=timedelta(minutes=5), 
         default_args=default_args, catchup=False, max_active_runs=1) as dag:
 
     filter_sql = PythonOperator(task_id='filter_from_SQL', python_callable = filter_from_sql)
