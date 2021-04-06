@@ -40,8 +40,8 @@ def put_record(message):
     title, body = rows[0], '\n'.join(rows[1:])
 
     try:
-        query = "INSERT INTO {} VALUES ('{}', '{}')".format(config.SQL_TABLE, title, body)
-        cursor.execute(query)
+        query = "INSERT INTO {} VALUES (%s, %s);".format(config.SQL_TABLE)
+        cursor.execute(query, [title, body])
     except Exception as e:
         print("ALLAG", e)
         connection.rollback()

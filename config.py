@@ -8,3 +8,6 @@ SQL_HOST = "localhost"
 SQL_USER_NAME = "postgres"
 SQL_USER_PASSWORD = "postgres"
 SQL_TABLE = "poems"
+
+
+ELASTIC_HOST = "127.0.0.1"

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Home for root kafka folder
 KAFKA_HOME="/home/miautawn/Programs/Kafka/"
 
@@ -20,6 +22,8 @@ if [ $VERBOSE -eq 0 ]
         $KAFKA_HOME"kafka_3/bin/zookeeper-server-start.sh" $KAFKA_HOME"kafka_3/config/zookeeper.properties" &
 fi
 
+#wait for some time
+sleep 5
 #Starting the kafka nodes
 echo "starting the kafka nodes..."
 #Do this for every kafka node you have
