@@ -52,7 +52,7 @@ def read_from_elastic():
     #Write to file
     with open(CONFIG_DIR+'/Airflow_dags/ready_data.txt', 'w') as file:
         for poem in poems:
-            file.write(poem)
+            file.write(poem + '\n')
 
 #This dag will run every 24 hours
 with DAG('LOAD_TO_TENSORFLOW_DAG', schedule_interval=timedelta(hours=24),
