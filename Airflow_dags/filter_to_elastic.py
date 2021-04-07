@@ -7,10 +7,10 @@ from datetime import datetime, timedelta
 import sys
 import re
 import csv
+import airflow_config
 
-CONFIG_DIR="/home/miautawn/virtual_maironis/"
-sys.path.append(CONFIG_DIR)
-
+#adding config to path
+sys.path.append(airflow_config.CONFIG_DIR)
 import config
 
 connection_string = """
@@ -42,7 +42,7 @@ def read_filtered_data():
     '''
     this fucntion will simply return the csv reader for the filtered_data.csv file
     '''
-    csv_file = open(CONFIG_DIR+'/Airflow_dags/filtered_data.csv', 'r')
+    csv_file = open(airflow_config.CONFIG_DIR+'/Airflow_dags/filtered_data.csv', 'r')
     m_reader = csv.reader(csv_file, delimiter=',')
     return m_reader
 
@@ -64,7 +64,7 @@ def filter_from_sql():
     data = cursor.fetchall()
 
     if (len(data) != 0):
-        csv_file = open(CONFIG_DIR+'/Airflow_dags/filtered_data.csv', 'w')
+        csv_file = open(airflow_config.CONFIG_DIR+'/Airflow_dags/filtered_data.csv', 'w')
         m_writer = csv.writer(csv_file, delimiter=',')
         for poem in data:
             header, body, ID = poem

@@ -5,10 +5,11 @@ from elasticsearch import helpers
 from datetime import datetime, timedelta
 import sys
 import csv
+import airflow_config
+import model
 
-CONFIG_DIR="/home/miautawn/virtual_maironis/"
-sys.path.append(CONFIG_DIR)
-
+#adding config to path
+sys.path.append(airflow_config.CONFIG_DIR)
 import config
 
 default_args = {
@@ -50,7 +51,7 @@ def read_from_elastic():
                 lox.append(record['_source']['body'])
     
     #Write to file
-    with open(CONFIG_DIR+'/Airflow_dags/ready_data.txt', 'w') as file:
+    with open(airflow_config.CONFIG_DIR+'/Airflow_dags/ready_data.txt', 'w') as file:
         for poem in poems:
             file.write(poem + '\n')
 
@@ -58,4 +59,7 @@ def read_from_elastic():
 with DAG('LOAD_TO_TENSORFLOW_DAG', schedule_interval=timedelta(hours=24),
             default_args = default_args, catchup=False, max_active_runs=1) as dag:
 
-    read_elastic = PythonOperator(task_id='read_from_elastic', python_callable=read_from_elastic) 
+    read_elastic = PythonOperator(task_id='read_from_elastic', python_callable=read_from_elastic)
+    train_model = PythonOperator(task_id = 'train_tf_model', python_callable = model.train_model)
+
+    read_elastic >> train_model
