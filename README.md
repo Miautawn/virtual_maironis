@@ -24,7 +24,7 @@ Tools used:
   * Kafka - to simulate streaming
   * PostgreSQL and ElasticSearch - for storing the data
   * Airflow - for organizing and scheduling various tasks
-  * Tensorflow - for Neural Networks construction
+  * Tensorflow - for Neural Network construction
 
 ![aa](https://user-images.githubusercontent.com/24988290/114075758-91a25b00-98ae-11eb-817b-99f3fbb5b7e5.png)
 
