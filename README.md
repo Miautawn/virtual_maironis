@@ -36,7 +36,7 @@ I used Kafka to simulate data streaming of Maironis poems, which we simply 'grab
 2.) Install required tools: Kafka, PostgreSQL DB, Elasticsearch  
 3.) Install all dependencies through Pipfile.lock  
 ```Shell
->>
+>> pipenv install --ignore-pipfile
 ```
 4.) Startup all the tools manually or configure my scripts in /startup_scripts  
 5.) Run the project with these steps:  
