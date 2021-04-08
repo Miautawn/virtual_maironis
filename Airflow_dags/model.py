@@ -58,7 +58,7 @@ def train_model():
     history = model.fit(train_inputs, labels, epochs = 100, verbose = 1)
 
     seed_text = airflow_config.POEM_SEED
-    next_words = 20
+    next_words = airflow_config.NUM_GENERATED_WORDS
 
     for _ in range(next_words):
         tokenized_sentence = tokenizer.texts_to_sequences([seed_text])[0]
