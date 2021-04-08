@@ -1,6 +1,6 @@
 ![maironis](https://user-images.githubusercontent.com/24988290/114064060-edb2b280-98a1-11eb-8669-e07566335aa3.png)
 # VIRTUAL_MAIRONIS
-This project aims to mimic the artistic capabilities of Mantas Mačiulis, aka Maironis - one of the greatest poets of Lithuania,  
+This project aims to mimic the artistic capabilities of Jonas Mačiulis, aka Maironis - one of the greatest poets of Lithuania,  
 by using Neural Networks.
 
 
