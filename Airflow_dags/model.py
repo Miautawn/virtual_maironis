@@ -71,7 +71,7 @@ def train_model():
                 break
         seed_text += " " + output_word
     
-    with open(airflow_config.CONFIG_DIR + 'generated_poem', 'w') as f:
+    with open(airflow_config.CONFIG_DIR + 'generated_poem.txt', 'w') as f:
         f.write(seed_text)
 
     
