@@ -38,9 +38,9 @@ I used Kafka to simulate data streaming of Maironis poems, which we simply 'grab
 ```Shell
 >> pipenv install --ignore-pipfile
 ```
-4.) Startup all the tools manually or configure my scripts in /startup_scripts  
-5.) Run the project with these steps:  
+4.) Configure `config.py` and `./Airflow_dags/airflow_config.py`  
+5.) Startup all the tools manually or configure my scripts in /startup_scripts  
+6.) Run the project with these steps:  
  * Run `start_stream.sh` in /startup_scripts - to start the kafka stream  
  * Start the `FILTER_DATA_DAG` and `LOAD_TO_TENSORFLOW_DAG` airflow DAGs  
  * See the result in `generated_poem.txt
- * 
