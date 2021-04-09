@@ -44,3 +44,12 @@ I used Kafka to simulate data streaming of Maironis poems, which we simply 'grab
  * Run `start_stream.sh` in /startup_scripts - to start the kafka stream  
  * Start the `FILTER_DATA_DAG` and `LOAD_TO_TENSORFLOW_DAG` airflow DAGs  
  * See the result in `generated_poem.txt`
+
+## About model  
+The model itself is nothing special and small in comparison as not to go crazy in training times.    
+It consists of 5 layers:  
+ * Embedding layer - for vectorizing our tokenized sentences  
+ * 2 Bidirectional LSTM with a Dropout in between - this is of course used because text generation   
+  works better with sequence models  
+ * 1 Dense hidden layer   
+ * 1 Output Dense layer with neurons which output the most likely word.  
