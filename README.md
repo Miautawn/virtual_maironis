@@ -43,4 +43,4 @@ I used Kafka to simulate data streaming of Maironis poems, which we simply 'grab
 6.) Run the project with these steps:  
  * Run `start_stream.sh` in /startup_scripts - to start the kafka stream  
  * Start the `FILTER_DATA_DAG` and `LOAD_TO_TENSORFLOW_DAG` airflow DAGs  
- * See the result in `generated_poem.txt
+ * See the result in `generated_poem.txt`
