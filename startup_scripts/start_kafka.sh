@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Home for root kafka folder
-KAFKA_HOME="/home/miautawn/Programs/Kafka/"
+KAFKA_HOME=""
 
 #Should print the kafka messages? 0 - No, 1 - yes
 VERBOSE=0

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ELASTIC_HOME="/home/miautawn/Programs/elasticsearch"
-KIBANA_HOME="/home/miautawn/Programs/kibana"
+ELASTIC_HOME=""
+KIBANA_HOME=""
 
 #Starting both
 $ELASTIC_HOME/bin/elasticsearch &

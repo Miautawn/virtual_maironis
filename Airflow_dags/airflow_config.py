@@ -1,5 +1,5 @@
-CONFIG_DIR="/home/miautawn/virtual_maironis/"
-MODEL_DATA = "/home/miautawn/virtual_maironis/Airflow_dags/ready_data.txt"
+CONFIG_DIR=""
+MODEL_DATA = ""
 
-POEM_SEED = "oi graži ta mūsų lietuva"
+POEM_SEED = ""
 NUM_GENERATED_WORDS = 10
